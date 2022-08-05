@@ -1,0 +1,46 @@
+#!/usr/bin/python3
+
+import numpy as np
+import h5py as hp
+import argparse
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Edit HDF5 Files.')
+    parser.add_argument('hd5file', metavar='f', type=ascii, nargs=1, help='input hdf5 file')
+    parser.add_argument('-e', dest='edit', metavar=('attr', 'val'), nargs=2, help='edit attribute (attr) of hdf5 file to value (val)')
+    parser.add_argument('-a', dest='add', metavar=('attr', 'val'), nargs=2, help='add attribute (attr) of hdf5 file to value (val)')
+    parser.add_argument('-d', dest='delete', metavar=('attr'), nargs=1, help='delete attribute (attr) from the hdf5 file')
+    args = parser.parse_args()
+
+    print()
+
+    fileName = args.hd5file[0][1:-1]
+    f = hp.File(fileName, 'r+')
+    kList = list(f.keys())
+
+    if args.edit:
+        editKey = args.edit[0]
+        if editKey in kList:
+            data = f[editKey]
+            data[...] = np.float(args.edit[1])
+            f.close()
+        else:
+            print("Specified Key Not Found")
+            exit()
+
+    if args.add:
+        addKey = args.add[0]
+        f.create_dataset(addKey, data=np.float(args.add[1]))
+        f.close()
+
+    if args.delete:
+        delKey = args.delete[0]
+        if delKey in kList:
+            del f[delKey]
+            f.close()
+        else:
+            print("Specified Key Not Found")
+            exit()
+
+
+
