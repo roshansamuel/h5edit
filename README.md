@@ -19,7 +19,10 @@ The following modules need to be installed for the app to work:
 
 ## Using h5edit
 
-The command-line arguments used by h5edit are: h5edit [-h] [-e attr val] [-a attr val] [-d attr] f
+The command-line arguments used by h5edit are:
+
+```
+h5edit [-h] [-e attr val] [-a attr val] [-d attr] f
 
 positional arguments:
   f            input hdf5 file
@@ -29,6 +32,7 @@ optional arguments:
   -e attr val  edit attribute (attr) of hdf5 file to value (val)
   -a attr val  add attribute (attr) of hdf5 file to value (val)
   -d attr      delete attribute (attr) from the hdf5 file
+```
 
 
 ## License
