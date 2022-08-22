@@ -1,7 +1,7 @@
 # h5edit
 
-h5edit is a Python-based command-line tool to edit HDF5 files on the fly.
-The tool allows to add/edit/remove scalar datasets with floating-point values to and from the HDF5 file.
+``h5edit`` is a Python-based command-line tool to edit HDF5 files on the fly.
+The tool allows one to add/edit/remove scalar datasets with floating-point values to and from an HDF5 file.
 This is useful for adding metadata to existing HDF5 files.
 
 ## Installing h5edit
@@ -10,7 +10,7 @@ To install ``h5edit``, you need to only clone the git repository into your local
 
 `git clone https://github.com/roshansamuel/h5edit.git`
 
-The executable Python script can be moved to a folder which is included in the PATH environment variable, so that the tool is available at the command-line.
+The executable Python script can be moved to a folder which is included in the PATH environment variable (like ``/usr/local/bin/``), so that the tool is available at the command-line.
 
 The following modules need to be installed for the app to work:
 
