@@ -62,7 +62,7 @@ if __name__ == '__main__':
         editKey = args.edit[0]
         if editKey in kList:
             data = f[editKey]
-            data[...] = np.float(args.edit[1])
+            data[...] = np.float64(args.edit[1])
             f.close()
         else:
             print("Specified Key Not Found")
